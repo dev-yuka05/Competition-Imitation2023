@@ -1,0 +1,127 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+/* Tabs 기능 */
+.tabs{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: #fff;
+    padding: 5px 5px;
+    border-radius: 500px;
+    border: 1px #e4e4e7 solid;
+    margin-bottom: 50px;
+}
+
+input[name="tabs"]{
+    display: none;
+}
+
+.tabs label{
+    padding: 7px 15px;
+    font-size: 14px;
+    user-select: none;
+    font-weight: bold;
+}
+
+div.circular{
+    display: none;
+    height: 400px;
+    max-width: 400px;
+}
+
+input[name="tabs"]#circular:checked ~ div.tabs label[for="circular"]{
+    background-color: #d4d4d8;
+    padding: 7px 15px;
+    border-radius: 50px;
+}
+
+input[name="tabs"]#circular:checked ~ div.circular{
+    display: block;
+}
+
+div.bar{
+    display: block;
+    height: 0px;
+    max-width: 0px;
+}
+
+input[name="tabs"]#bar:checked ~ div.tabs label[for="bar"]{
+    background-color: #d4d4d8;
+    padding: 7px 15px;
+    border-radius: 50px;
+}
+
+input[name="tabs"]#bar:checked ~ div.bar{
+    height: 400px;
+    max-width: 400px;
+}
+
+/* 그래프 기능 */
+.pie-chart {
+    display:inline-block;
+    width: 200px;
+    height: 200px;
+    background: conic-gradient(rgba(255, 255, 255, 0) var(--angle), #8b22ff 0% 25%, #ffc33b 25% 56%, #21f3d6 56% 100%);
+    border-radius: 50%;
+    position: relative;
+    animation: animate 1s linear alternate;
+    transform: scaleX(-1); 
+}
+
+@keyframes animate {
+    0%{
+        --angle: 360deg;
+    }
+    100% {
+        --angle: 0deg;
+    }
+}
+
+@property --angle {
+    syntax: "<angle>"; /* this can be angle or percentage */
+    initial-value: 0deg;
+    inherits: false;
+}
+
+/* 막대기 */
+.bar-chart{
+    height: 300px;
+    max-height: 300px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 30px;
+}
+
+div.bar .bar-chart div{
+    height: 0%;
+    width: 20px;
+    transition: height 0.8s linear;
+    transition-delay: 0.1s;
+}
+
+input[name="tabs"]#bar:checked ~ div.bar .bar-chart div:nth-child(1){
+    height:20%;
+    background-color: #8b22ff;
+}
+
+input[name="tabs"]#bar:checked ~ div.bar .bar-chart div:nth-child(2){
+    height: 40%;
+    background-color: #ef4444;
+}
+
+input[name="tabs"]#bar:checked ~ div.bar .bar-chart div:nth-child(3){
+    height: 100%;
+    background-color: #ffc33b;
+}
