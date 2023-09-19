@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+    height: 100vh;
+    max-height: 100vh;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.container{
+    padding: 100px 0;
+}
+
+/* 분활 화면 */
+.splitter{
+    width: 50%;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.splitter img{
+    height: 100%;
+    display: block;
+}
+
+.splitter .resize{
+    height: 100%;
+    max-width: 100%;
+    resize: horizontal;
+    overflow-x: hidden;
+    position: absolute;
+    top: 0;
+}
+
+.splitter .resize::-webkit-scrollbar {
+    height: 100px;
+}
+
+.splitter .resize::-webkit-resizer {
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+}
