@@ -1,0 +1,147 @@
+body{
+    margin: 0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+/* 구매 미리보기 */
+.imgbox {
+    width: var(--imgwidth);
+    height: var(--imgheight);
+    border: 1px solid black;
+    overflow: hidden;
+    position: absolute;
+}
+
+.imgboximg {
+    width: calc(var(--imgwidth) * 3);
+    height: calc(var(--imgheight) * 3);
+    top: var(--imgy);
+    left: var(--imgx);
+    position: absolute;
+    z-index: 0;
+    transition: all 1s;
+
+}
+.selectbox {
+    display: inline-block;
+    position: absolute;
+    width: 0%;
+    height: 0%;
+    background-color: rgba(255, 255, 255, 0);
+    z-index: 1;
+}
+.select1,.select2,.select3,.select4,.select5,.select6,.select7,.select8,.select9 {
+    display: block;
+    position: absolute;
+    width: calc(var(--imgwidth) / 3);
+    height: calc(var(--imgheight) / 3);
+    z-index: 1;
+}
+.select1 {
+    cursor: nwse-resize;
+}
+.select1:hover ~ .imgboximg{
+    --imgx: 0px;
+    --imgy: 0px;
+}
+.select2{
+    cursor: ns-resize;
+    left: calc(var(--imgwidth)/3);
+}
+.select2:hover ~ .imgboximg{
+    --imgx: calc(0px - var(--imgwidth));
+    --imgy: 0px;
+}
+.select3{
+    cursor: nesw-resize;
+    left: calc(var(--imgwidth)/3*2);
+}
+.select3:hover ~ .imgboximg{
+    --imgx: calc(0px - var(--imgwidth) * 2);
+    --imgy: 0px;
+}
+.select4{
+    cursor: ew-resize;
+    top: calc(var(--imgheight)/3);
+}
+.select4:hover ~ .imgboximg{
+    --imgx: 0px;
+    --imgy: calc(0px - var(--imgheight));
+}
+.select5{
+    cursor: move;
+    top: calc(var(--imgheight)/3);
+    left: calc(var(--imgwidth)/3);
+}
+.select6{
+    cursor: ew-resize;
+    top: calc(var(--imgheight)/3);
+    left: calc(var(--imgwidth)/3*2);
+}
+.select6:hover ~ .imgboximg{
+    --imgx: calc(0px - var(--imgwidth) * 2);
+    --imgy: calc(0px - var(--imgheight));
+}
+.select7{
+    cursor: nesw-resize;
+    top: calc(var(--imgheight)/3*2);
+}
+.select7:hover ~ .imgboximg{
+    --imgx: 0px;
+    --imgy: calc(0px - var(--imgheight) * 2);
+}
+.select8{
+    cursor: ns-resize;
+    top: calc(var(--imgheight)/3*2);
+    left: calc(var(--imgwidth)/3);
+}
+.select8:hover ~ .imgboximg{
+    --imgx: calc(0px - var(--imgwidth));
+    --imgy: calc(0px - var(--imgheight) * 2);
+}
+.select9{
+    cursor: nwse-resize;
+    top: calc(var(--imgheight)/3*2);
+    left: calc(var(--imgwidth)/3*2);
+}
+.select9:hover ~ .imgboximg{
+    --imgx: calc(0px - var(--imgwidth) * 2);
+    --imgy: calc(0px - var(--imgheight) * 2);
+}
+
+/* 변수 */
+@property --imgx {
+    syntax: "<length>";
+    initial-value: -512px;
+    inherits: true;
+}
+
+@property --imgy {
+    syntax: "<length>";
+    initial-value: -512px;
+    inherits: false;
+}
+
+@property --imgwidth {
+    syntax: "<length>";
+    initial-value: 512px;
+    inherits: false;
+}
+
+@property --imgheight {
+    syntax: "<length>";
+    initial-value: 512px;
+    inherits: false;
+}
