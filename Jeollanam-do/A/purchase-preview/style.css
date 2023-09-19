@@ -124,24 +124,24 @@ body{
 /* 변수 */
 @property --imgx {
     syntax: "<length>";
-    initial-value: -512px;
+    initial-value: -256px;
     inherits: true;
 }
 
 @property --imgy {
     syntax: "<length>";
-    initial-value: -512px;
+    initial-value: -256px;
     inherits: false;
 }
 
 @property --imgwidth {
     syntax: "<length>";
-    initial-value: 512px;
+    initial-value: 256px;
     inherits: false;
 }
 
 @property --imgheight {
     syntax: "<length>";
-    initial-value: 512px;
+    initial-value: 256px;
     inherits: false;
 }
