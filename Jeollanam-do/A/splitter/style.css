@@ -10,35 +10,70 @@ body{
 
 .container{
     padding: 100px 0;
+    width: 50vw;
+    margin: 0 auto;
 }
 
 /* 분활 화면 */
 .splitter{
-    width: 50%;
     position: relative;
-    margin: 0 auto;
+    display: inline-block;
     overflow: hidden;
 }
 
-.splitter img{
-    height: 100%;
-    display: block;
-}
-
-.splitter .resize{
-    height: 100%;
-    max-width: 100%;
-    resize: horizontal;
-    overflow-x: hidden;
+.main-img{
+    width: 50vw;
+    height: 50vh;
     position: absolute;
-    top: 0;
 }
 
+.sub-img {
+    position: absolute;
+    width: 50vw;
+    height: 50vh;
+    z-index: 0;
+    box-sizing: border-box;
+    padding-left: 1.5vw;
+    margin-left: -1.5vw;
+}
+
+/* 좌우 이동 바 */
+.splitter .resize{
+    width: 10vw;
+    max-width: 50vw;
+    height: 50vh;
+    position: relative;
+    resize: horizontal;
+    overflow-x: overlay;
+    z-index: 1;
+}
+
+.resize::after {
+    content: '';
+    width: 105%;
+    height: 105%;
+    display: block;
+    z-index: -1;
+}
 .splitter .resize::-webkit-scrollbar {
-    height: 100px;
+    height: 100vh;
+    width: 1.5vw;
 }
 
 .splitter .resize::-webkit-resizer {
-    height: 100%;
+    overflow: hidden;
     background: rgba(0, 0, 0, 0.8);
+}
+
+.pull-tab {
+    height: 50vh;
+    line-height: 50vh;
+    width: 1.5vw;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    pointer-events: none;
+    z-index: 2;
 }
