@@ -1,0 +1,35 @@
+/* 비주얼 영역 */
+section.visual{
+    min-height: 680px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+section.visual .contents{
+    position: relative;
+}
+
+section.visual img{
+    border-radius: 25px;
+}
+
+section.visual .text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+}
+
+section.visual .title{
+    font-size: 56px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+section.visual .info{
+    font-size: 24px;
+}
